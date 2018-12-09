@@ -6,7 +6,7 @@ def index():
     if request.method == "GET":
 
         # Execute list joining "book" and "idlist" tables
-        list = db.execute("SELECT * FROM book INNER JOIN idlist on book.Title=idlist.Title WHERE id=:id",
+        list = db.execute("SELECT Title, Status, update, Author, Year, Country, Language FROM idlist INNER JOIN book on idlist.Title=book.Title WHERE id=:id",
                           id=session["user_id"])
         # If the user has no list yet
         if not list:
