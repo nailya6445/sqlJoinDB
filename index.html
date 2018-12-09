@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+{% block main %}
+        <table style="width:100%">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Country</th>
+                <th>Language</th>
+                <th>Status</th>
+                <th>Last update</th>
+            </tr>
+                {% for el in list %}
+                    <tr>
+                        <td>
+                            {{ el.book.Title }}
+                        </td>
+                        <td>
+                            {{ el.book.Author }}
+                        </td>
+                        <td>
+                            {{ el.book.Year }}
+                        </td>
+                        <td>
+                            {{ el.book.Country }}
+                        </td>
+                        <td>
+                            {{ el.book.Language }}
+                        </td>
+                        <td>
+                            {{ el.idlist.Status }}
+                        </td>
+                        <td>
+                            {{ el.idlist.update }}
+                        </td>
+                    </tr>
+                {% endfor %}
+        </table>
+{% endblock %}
